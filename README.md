@@ -1,7 +1,7 @@
 > An opinionated [Jest preset](http://facebook.github.io/jest/docs/en/configuration.html#preset-string) for React modules.
 > <br />
-> For non-React projects use [amex-jest-preset](https://github.com/americanexpress/amex-jest-preset) > <br />
-> For non-React Testing Library projects use [amex-jest-preset-react](https://github.com/americanexpress/amex-jest-preset-react)
+> For non-React projects use [amex-jest-preset](https://github.com/americanexpress/amex-jest-preset)<br />
+> For React Enzyme projects use [amex-jest-preset-react](https://github.com/americanexpress/amex-jest-preset-react)
 
 ## 👩‍💻 Hiring 👨‍💻
 
