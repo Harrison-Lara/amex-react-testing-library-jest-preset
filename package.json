@@ -1,0 +1,96 @@
+{
+  "name": "amex-react-testing-library-jest-preset",
+  "description": "An opinionated Jest preset for React modules using Testing Library",
+  "version": "0.0.0",
+  "keywords": [
+    "jest",
+    "preset",
+    "amex",
+    "react",
+    "quality"
+  ],
+  "main": "jest-preset.js",
+  "contributors": [
+    "Harrison Lara"
+  ],
+  "author": "Harrison Ryan Lara <Harrison.R.Lara@aexp.com> (https://github.com/Harrison-Lara)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/americanexpress/amex-react-testing-library-jest-preset.git"
+  },
+  "files": [
+    "jest-setup.js",
+    "jest-preset.js"
+  ],
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:lockfile": "lockfile-lint -p package-lock.json -t npm -a npm -o https: -c -i",
+    "test:git-history": "commitlint --from origin/main --to HEAD",
+    "test:unit": "jest",
+    "posttest": "npm run test:lockfile && npm run test:git-history"
+  },
+  "jest": {
+    "preset": "amex-jest-preset",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/jest-setup.js",
+      "<rootDir>/commitlint.config.js"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "amex-jest-preset": "^6.1.0",
+    "identity-obj-proxy": "^3.0.0"
+  },
+  "peerDependencies": {
+    "jest-serializer-html": "^7.1.0",
+    "jest": ">=27.4.7",
+    "react": "17.x",
+    "react-dom": "17.x"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.1.1",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "husky": "^3.1.0",
+    "jest": ">=27.4.7",
+    "lockfile-lint": "^4.3.7",
+    "semantic-release": "^17.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
+}
